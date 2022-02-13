@@ -12,15 +12,15 @@ class Post(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='posts'
-        )
+    )
     group = models.ForeignKey(
-        'Group', 
+        'Group',
         on_delete=models.CASCADE,
         blank=True,
         null=True,
         related_name='groups'
-        )
-    
+    )
+
     def __str__(self) -> str:
         return self.text[:10]
 
