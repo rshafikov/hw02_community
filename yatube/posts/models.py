@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-from .views import DISPLAYED_OBJECTS_COUNT
 
-from .views import DISPLAYED_OBJECTS_COUNT
 
 User = get_user_model()
 
@@ -24,7 +22,7 @@ class Post(models.Model):
     )
 
     def __str__(self):
-        return self.text[:DISPLAYED_OBJECTS_COUNT]
+        return self.text.split()[:10]
 
 
 class Group(models.Model):

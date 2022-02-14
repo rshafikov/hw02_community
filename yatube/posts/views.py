@@ -4,7 +4,7 @@ from .models import Group, Post
 
 
 def index(request):
-    posts = Post.objects.all().order_by('-pub_date')[DISPLAYED_OBJECTS_COUNT]
+    posts = Post.objects.all().order_by('-pub_date')[:DISPLAYED_OBJECTS_COUNT]
     template = 'posts/index.html'
     context = {
         'posts': posts,
@@ -15,7 +15,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.all().order_by('-pub_date')[DISPLAYED_OBJECTS_COUNT]
+    posts = group.posts.all().order_by('-pub_date')[:DISPLAYED_OBJECTS_COUNT]
     template = 'posts/group_list.html'
     context = {
         'group': group,
