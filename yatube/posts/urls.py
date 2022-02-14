@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import index, group_posts
 
+from .views import group_posts, index
 
 app_name = 'posts'
 
