@@ -22,7 +22,7 @@ class Post(models.Model):
     )
 
     def __str__(self):
-        return self.text.split()[:10]
+        return self.text
 
 
 class Group(models.Model):
