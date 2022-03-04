@@ -3,8 +3,8 @@
   Записи сообщества {{ group.title }}
 {% endblock title %}
 {% block content %}
-  <div class="container">
-    {% for post in posts %}
+  <div class="container py-5">
+    {% for post in page_obj %}
       {% if forloop.first %}
         <h1>{{ group.title }}</h1>
           <p>
@@ -14,7 +14,10 @@
       <article>
         <ul>
           <li>
-            Автор: {{ post.author.get_full_name }}
+            Автор: 
+            <a href="{% url 'posts:profile' post.author.username %}">
+              {{ post.author.get_full_name }}
+            </a>
           </li>
           <li>
             Дата публикации: {{ post.pub_date|date:"d E Y" }}
@@ -28,5 +31,5 @@
         <hr>
       {% endif %}
     {% endfor %} 
-  </div>  
+  </div>
 {% endblock content %}

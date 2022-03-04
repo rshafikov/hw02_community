@@ -16,11 +16,11 @@
   <body>
       {% include 'includes/header.html' %}
     <main>
-      {% block content %} 
-        content not uploaded 
+      {% block content %}
+        content not uploaded
       {% endblock content %}
+      {% include 'posts/includes/paginator.html' %}
     </main>
       {% include 'includes/footer.html' %}
   </body>
 </html>
-

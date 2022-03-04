@@ -3,8 +3,8 @@
   {{ title }}
 {% endblock title %}
 {% block content %}
-  <div class="container">
-    {% for post in posts %}
+  <div class="container py-5">
+    {% for post in page_obj %}
       {% if forloop.first %}
         <h1>{{ title }}</h1>
       {% endif %}
@@ -21,7 +21,7 @@
           {{ post.text }}
         </p>
         {% if post.group %}   
-          <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+          <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы "{{ post.group }}"</a>
         {% endif %} 
       </article>
       {% if not forloop.last %}
